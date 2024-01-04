@@ -33,7 +33,7 @@ int main() {
         if(score != -1)
             v[id].isshown = true;
         else if(v[id].score[num] == -1)
-            v[id].score[num] = -2;
+            v[id].score[num] = 0;
     }
     for(int i = 1; i <= n; i++) {
         for(int j = 1; j <= k; j++) {
@@ -53,12 +53,10 @@ int main() {
         if(v[i].isshown == true) {
             printf("%d %05d %d", v[i].rank, v[i].id, v[i].total);
             for(int j = 1; j <= k; j++) {
-                if(v[i].score[j] != -1 && v[i].score[j] != -2)
+                if(v[i].score[j] != -1)
                     printf(" %d", v[i].score[j]);
                 else if(v[i].score[j] == -1)
                     printf(" -");
-                else
-                    printf(" 0");
             }
             printf("\n");
         }
