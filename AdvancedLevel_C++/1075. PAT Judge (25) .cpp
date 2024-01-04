@@ -50,7 +50,7 @@ int main() {
             v[i].rank = v[i - 1].rank;
     }
     for(int i = 1; i <= n; i++) {
-        if(v[i].isshown == true) {
+        if(v[i].isshown) {
             printf("%d %05d %d", v[i].rank, v[i].id, v[i].total);
             for(int j = 1; j <= k; j++) {
                 if(v[i].score[j] != -1)
