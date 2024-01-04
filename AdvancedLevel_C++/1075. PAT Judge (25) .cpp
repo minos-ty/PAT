@@ -22,12 +22,14 @@ int main() {
     scanf("%d %d %d", &n, &k, &m);
     vector<node> v(n + 1);
     for(int i = 1; i <= n; i++)
+        //  vector从新分配长度并且初始化
         v[i].score.resize(k + 1, -1);
     vector<int> full(k + 1);
     for(int i = 1; i <= k; i++)
         scanf("%d", &full[i]);
     for(int i = 0; i < m; i++) {
         scanf("%d %d %d", &id, &num, &score);
+        // 利用数组下标唯一的特性来存储多条数据取唯一值
         v[id].id = id;
         v[id].score[num] = max(v[id].score[num], score);
         if(score != -1)
@@ -43,7 +45,9 @@ int main() {
                 v[i].passnum++;
         }
     }
+    // v中第一个位置没有存储有效数据,这里从第二个位置开始排序
     sort(v.begin() + 1, v.end(), cmp1);
+    // 计算rank, 总分相同的rank相同
     for(int i = 1; i <= n; i++) {
         v[i].rank = i;
         if(i != 1 && v[i].total == v[i - 1].total)
