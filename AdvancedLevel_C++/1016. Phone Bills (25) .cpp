@@ -10,6 +10,7 @@ struct node {
 };
 
 bool cmp(node a, node b) {
+    // 名称不相同就按名字来排序，相同就按时间来排序
     return a.name != b.name ? a.name < b.name : a.time < b.time;
 }
 
