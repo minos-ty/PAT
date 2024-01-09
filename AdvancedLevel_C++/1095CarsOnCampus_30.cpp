@@ -70,6 +70,7 @@ int main() {
         for (j = tempindex; j < car.size(); j++) {
             if (car[j].time > temptime) {
                 printf("%d\n", cnt[j - 1]);
+                // 只要找到一个节点就结束当前循环
                 break;
             } else if (j == car.size() - 1) {
                 // 遍历完以后没有找到时间结束节点
@@ -86,6 +87,7 @@ int main() {
         if (it.second == maxtime)
             printf("%s ", it.first.c_str());
     }
-    printf("%02d:%02d:%02d", maxtime / 3600, (maxtime % 3600) / 60, maxtime % 60);
+    //  maxtime / 3600 s2h  (maxtime % 3600) / 60 s2m  maxtime % 60 秒转换成分钟还剩余的数就是还剩多少秒
+    printf("%02d:%02d:%02d\n", maxtime / 3600, (maxtime % 3600) / 60, maxtime % 60);
     return 0;
 }
